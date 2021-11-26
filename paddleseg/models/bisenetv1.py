@@ -70,14 +70,14 @@ class BiseNetV1(nn.Layer):
         context_blocks.reverse()
 
         global_context = self.global_context(context_blocks[0])
-        global_context = F.interpolate(global_context, size=context_blocks[0].shape[2:], mode='bilinear', align_corners=True)
+        global_context = F.interpolate(global_context, size=paddle.shape(context_blocks[0])[2:], mode='bilinear', align_corners=True)
         last_fm = global_context
         pred_out = []
 
         for i, (fm, arm, refine) in enumerate(zip(context_blocks[:2], self.arms, self.refines)):
             fm = arm(fm)
             fm += last_fm
-            last_fm = F.interpolate(fm, size=context_blocks[i + 1].shape[2:], mode='bilinear', align_corners=True)
+            last_fm = F.interpolate(fm, size=paddle.shape(context_blocks[i + 1])[2:], mode='bilinear', align_corners=True)
             last_fm = refine(last_fm)
             pred_out.append(last_fm)
         context_out = last_fm

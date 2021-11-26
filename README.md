@@ -38,8 +38,8 @@
 ### 第一步：克隆本项目
 ```bash
 # clone this repo
-git clone https://github.com/justld/ENCNet_paddle.git
-cd ENCNet_paddle
+git clone https://github.com/justld/BisNetV1_paddle.git
+cd BisNetV1_paddle
 ```
 
 **安装第三方库**
@@ -51,17 +51,17 @@ pip install -r requirements.txt
 ### 第二步：训练模型
 单卡训练：
 ```bash
-python train.py --config configs/encnet_cityscapes_1024x512_80k.yml  --do_eval --use_vdl --log_iter 100 --save_interval 1000 --save_dir output
+python train.py --config configs/bisenetv1/bisenetv1_cityscapes_1024x512_160k.yml  --do_eval --use_vdl --log_iter 100 --save_interval 1000 --save_dir output
 ```
 多卡训练：
 ```bash
-python -m paddle.distributed.launch train.py --config configs/encnet_cityscapes_1024x512_80k.yml  --do_eval --use_vdl --log_iter 100 --save_interval 1000 --save_dir output
+python -m paddle.distributed.launch train.py --config configs/bisenetv1/bisenetv1_cityscapes_1024x512_160k.yml  --do_eval --use_vdl --log_iter 100 --save_interval 1000 --save_dir output
 ```
 
 ### 第三步：测试
 output目录下包含已经训练好的模型参数以及对应的日志文件。
 ```bash
-python val.py --config configs/encnet_cityscapes_1024x512_80k.yml --model_path 
+python val.py --config configs/bisenetv1/bisenetv1_cityscapes_1024x512_160k.yml --model_path 
 ```
 
 ### 第四步：tipc
@@ -88,7 +88,7 @@ bash test_train_inference_python.sh
 │  val.py                       
 ```
 **说明**
-1、本项目在Aistudio平台，使用Tesla V100 * 4 脚本任务训练80K miou达到78.70%。  
+1、本项目在Aistudio平台，使用Tesla V100 * 4 脚本任务训练16K miou达到75.19%。  
 2、本项目基于PaddleSeg开发。  
 
 ## 6 模型信息
@@ -102,6 +102,6 @@ bash test_train_inference_python.sh
 | 框架版本 | PaddlePaddle==2.2.0 |
 | 应用场景 | 语义分割 |
 | 硬件支持 | GPU、CPU |
-| 在线体验 | [notebook](https://aistudio.baidu.com/aistudio/projectdetail/3001104?contributionType=1), [Script](https://aistudio.baidu.com/aistudio/clusterprojectdetail/2998787)|
+| 在线体验 | [notebook](https://aistudio.baidu.com/aistudio/projectdetail/3050198), [Script](https://aistudio.baidu.com/aistudio/clusterprojectdetail/3020181)|
 
 

@@ -48,21 +48,14 @@ lr_scheduler:
 
 loss:
   types:
-    - type: CrossEntropyLoss # output
-    - type: CrossEntropyLoss # fcn out
-    - type: SeCrossEntropyLoss # se out
-      num_classes: 150
-  coef: [1, 0.4, 0.2]
+    - type: OhemCrossEntropyLoss
+    - type: OhemCrossEntropyLoss
+    - type: OhemCrossEntropyLoss
+  coef: [1, 1, 1]
 
 model:
-  type: FastFCN
+  type: BiseNetV1
   backbone:
-    type: ResNet50_vd
+    type: ResNet18_vd
     output_stride: 8
-    pretrained: https://bj.bcebos.com/paddleseg/dygraph/resnet50_vd_ssld_v2.tar.gz
-  num_codes: 32
-  mid_channels: 512
-  jpu: True
-  aux_loss: True
-  use_se_loss: True
-  add_lateral: True
+    # pretrained: https://bj.bcebos.com/paddleseg/dygraph/resnet18_vd_ssld.tar.gz
