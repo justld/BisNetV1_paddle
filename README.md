@@ -65,9 +65,10 @@ python val.py --config configs/bisenetv1/bisenetv1_cityscapes_1024x512_160k.yml 
 ```
 
 ### 第四步：tipc
-在linux下，进入ENCNet_paddle文件夹，运行命令
+在linux下，进入BisNetV1_paddle文件夹，运行命令
 ```bash
-bash test_train_inference_python.sh
+bash test_tipc/prepare.sh ./test_tipc/configs/bisenetv1_small/train_infer_python.txt 'lite_train_lite_infer'
+bash test_tipc/test_train_inference_python.sh ./test_tipc/configs/bisenetv1_small/train_infer_python.txt 'lite_train_lite_infer'
 ```
 
 ## 5 代码结构与说明
