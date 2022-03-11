@@ -1,4 +1,4 @@
-# ENCNet_paddle
+# BiSeNet_paddle
 
 
 ## 1 简介
