@@ -3,7 +3,7 @@
 
 ## 1 简介
 ![images](images/network.png)  
-本项目基于paddlepaddle框架复现了BiSeNet语义分割模型，BiSeNet利用Attention Refinement Module 和 Feature Fusion Module来提升网络性能。
+本项目基于paddlepaddle框架复现了BiSeNet语义分割模型，BiSeNet引入Spatial Path和Context Path，Spatial Path中步长较小来得到高分辨率的特征图，Context Path引入快速的下采样机制来增加感受野，最后使用特征融合模块将Spatial Path和Context Path的特征图进行有效融合。。
 
 **论文：**
 - [1] Changqian Yu, Jingbo Wang, Chao Peng, Changxin Gao, Gang Yu, and Nong Sang. [BiSeNet: Bilateral Segmentation Network for Real-time Semantic Segmentation](https://paperswithcode.com/paper/bisenet-bilateral-segmentation-network-for)
